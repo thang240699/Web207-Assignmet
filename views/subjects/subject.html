@@ -1,0 +1,25 @@
+<div ng-controller="SubjectCtrl">
+    <div class="row">
+        <div class="col-sm-4" ng-repeat="sub in subjects | limitTo:6:begin">
+            <div class="card" style="margin-top: 5px">
+                <img ng-src="images/logos/{{sub.Logo}}" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{sub.Name}}</h5>
+                    <a href="#!/quiz/{{sub.Id}}" class="btn btn-primary">Vào thi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="Page navigation example" class="margin-top">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="" tabindex="-1" aria-disabled="true" ng-click="first()"> << </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="" ng-click="prev()"> < </a></li>
+            <li class="page-item"><a class="page-link" href="" ng-click="next()"> > </a></li>
+            <li class="page-item">
+                <a class="page-link" href="" ng-click="last()"> >> </a>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,16 @@
+.logo {
+    width: 50%;
+    height: 50%;
+}
+.margin-top{
+    margin-top: 20px;
+}
+.padding-lr{
+    padding: 0 20px;
+}
+.border-bottom1{
+    border-bottom: 1px dotted gray;
+}
+.font-francois{
+    font-family: 'Francois One', sans-serif;
+}

@@ -1,0 +1,35 @@
+<div ng-controller="QuizCtrl">
+    <div class="card" ng-if="sumup === false">
+        <div class="card-header">
+            <div class="row">
+                <div class="col"><h4><i class="fas fa-list-alt"></i>Quiz</h4></div>
+                <div class="col text-right">Thời gian: {{time}}s</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                <span>
+                    Câu {{currentQuestion + 1}}: {{question().Text}}
+                </span>
+            </h5>
+            <p class="card-text" ng-repeat="list in question().Answers">
+                <label>
+                    <input type="radio" ng-model="answer.choose" value="{{list.Id}}" name="answer"> {{list.Text}}
+                </label>
+            </p>
+        </div>
+        <div class="card-footer text-muted">
+            Điểm: {{quizMarks}} / {{questions.length}}
+            <div class="text-center">
+                <div ng-hide="currentQuestion == 0" ng-click="setQuestionSerial(currentQuestion - 1)"
+                     class="btn btn-primary">Previous
+                </div>
+                <div ng-click="submitQuiz()" class="btn btn-success">Submit</div>
+                <div ng-hide="currentQuestion == questions.length -1" ng-click="setQuestionSerial(currentQuestion + 1)"
+                     class="btn btn-primary">Next
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="sumup === true" ng-include="'views/quizs/sumup.html'"></div>
+</div>

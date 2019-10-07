@@ -1,0 +1,61 @@
+<div ng-controller="AccCtrl">
+    <div class="container"><h1 class="text-center margin-top display-4">Danh sách thành viên</h1></div>
+    <div class="col-sm-12 margin-top">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Họ và tên</th>
+                <th scope="col">Giới tính</th>
+                <th scope="col">Ngày sinh</th>
+                <th scope="col">Email</th>
+                <th scope="col">#</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="student in students">
+                <td>{{student.fullname}}</td>
+                <td>
+                    <span ng-if="student.gender == 0"> Nam</span>
+                    <span ng-if="student.gender == 1"> Nữ</span>
+                </td>
+                <td>{{student.birthday}}</td>
+                <td>{{student.email}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger" ng-click="delete($index)">Xóa</button>
+                    <button type="button" class="btn btn-info" ng-click="edit($index)">Sửa</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-sm-12 margin-top">
+        <form>
+            <div class="form-group">
+                <label>Họ và tên</label>
+                <input type="text" class="form-control" ng-model="student.fullname">
+            </div>
+            <div class="form-group">
+                <label>Giới tính</label>
+                <div>
+                    <input type="radio" value="0" ng-model="student.gender"> Nam
+                    <input type="radio" value="1" ng-model="student.gender"> Nữ
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Ngày sinh</label>
+                <input type="text" class="form-control" ng-model="student.birthday">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control"  ng-model="student.email">
+                <small id="emailHelp" class="form-text text-muted">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-outline-danger" ng-click="insert()"  ng-disabled="index != -1">Thêm</button>
+                <button type="submit" class="btn btn-outline-danger" ng-click="update()"  ng-disabled="index == -1">Sửa</button>
+            </div>
+
+        </form>
+    </div>
+</div>
